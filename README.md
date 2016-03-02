@@ -1,6 +1,6 @@
 ```sh
-cd ~/.xmonad
-ln -s ~/git/dotfiles/xmonad.hs
-ln -s ~/git/dotfiles/xmobar
+mkdir ~/.xmonad
+ln -s ./xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+ln -s ./xmonad/xmobar ~/.xmonad/xmobar
 ```
 
