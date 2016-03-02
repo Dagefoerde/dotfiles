@@ -155,6 +155,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Suspend
     , ((modm .|. shiftMask, xK_s), spawn "sudo pm-suspend") -- not working :(
+
+    -- Switch keyboard layout
+    , ((modm .|. shiftMask, xK_a), spawn "layout_switch.sh")
     ]
     ++
 

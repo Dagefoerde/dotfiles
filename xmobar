@@ -99,8 +99,8 @@ Config {
         , Run Date           "<fc=#cccccc>%a %F %T</fc>" "date" 10
 
         -- keyboard layout indicator
-        , Run Kbd            [ ("us(intl)" , "<fc=orange>INTL</fc>")
-                             , ("us"         , "<fc=#8B0000>US</fc>")
+        , Run Kbd            [ ("us(intl)" , "<fc=green>INTL</fc>")
+                             , ("de"         , "<fc=red>DE</fc>")
                              ]
 	, Run StdinReader
 	]
