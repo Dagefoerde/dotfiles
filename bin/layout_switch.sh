@@ -8,14 +8,11 @@
 if [[ -n "$1" ]]; then
     setxkbmap $1
 else
-    layout=$(setxkbmap -query | awk 'END{print $2}')
+    layout=$(setxkbmap -query | grep "layout: " |awk '{print $2}')
     case $layout in
-        'us(intl)')
+	us|'us(intl)'|intl)
                 setxkbmap de
             ;;
-	intl)
-		setxkbmap de
-	    ;;
         de)
                 setxkbmap "us(intl)"
             ;;
