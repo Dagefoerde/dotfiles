@@ -154,7 +154,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_l), spawn "slock")
 
     -- Suspend
-    , ((modm .|. shiftMask, xK_s), spawn "sudo pm-suspend") -- not working :(
+    , ((modm .|. shiftMask, xK_s), spawn "gksu pm-suspend; and slock") -- needs improvement: password check is unnecessary
 
     -- Switch keyboard layout
     , ((modm .|. shiftMask, xK_a), spawn "layout_switch.sh")
