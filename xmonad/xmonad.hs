@@ -25,6 +25,8 @@ import XMonad.Layout.Tabbed
 
 import Data.Ratio ((%))
 
+import Graphics.X11.ExtraTypes.XF86
+
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
@@ -158,6 +160,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Switch keyboard layout
     , ((modm .|. shiftMask, xK_a), spawn "layout_switch.sh")
+
+    -- Volume keys
+    , ((0 , xF86XK_AudioRaiseVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ +1.5%")
+    , ((0 , xF86XK_AudioLowerVolume), spawn "pactl set-sink-volume @DEFAULT_SINK@ -- -1.5%")
+    , ((0 , xF86XK_AudioMute), spawn "pactl set-sink-mute @DEFAULT_SINK@ toggle")
     ]
     ++
 
