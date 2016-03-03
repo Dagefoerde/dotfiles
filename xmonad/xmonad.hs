@@ -207,9 +207,9 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-imLayout    = avoidStruts $ reflectHoriz $ withIM (1%6) (And (ClassName "Pidgin") (Role "buddy_list")) $ Grid ||| Full
+imLayout    = avoidStruts $ reflectHoriz $ ( withIM (1%6) (And (ClassName "Pidgin") (Role "buddy_list")) $ Grid ) ||| simpleTabbed
 
-generalLayout = avoidStruts $ noFrillsDeco shrinkText theme $ tiled ||| Mirror tiled ||| simpleTabbed ||| Full
+generalLayout = avoidStruts $ noFrillsDeco shrinkText theme $ tiled ||| Mirror tiled ||| simpleTabbed
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
