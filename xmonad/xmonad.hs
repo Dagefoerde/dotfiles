@@ -13,6 +13,7 @@ import XMonad.Actions.WindowGo (runOrRaise)
 import XMonad.Hooks.DynamicLog  
 import XMonad.Hooks.ManageDocks  
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.SetWMName
 import XMonad.Util.Run  
 import System.IO  
 import System.Exit
@@ -319,7 +320,8 @@ myStartupHook = do
 main = do
     xmproc <- spawnPipe "/usr/bin/xmobar /home/likewise-open/WIWI/j_dage01/.xmonad/xmobar"
     xmonad $ defaults {
-		logHook = dynamicLogWithPP xmobarPP {
+		logHook = setWMName "LG3D" <+> -- Fixes problems with Java Swing applications
+            dynamicLogWithPP xmobarPP { --xmobar
 			          ppOutput = hPutStrLn xmproc
 			        , ppTitle = const "" --xmobarColor "blue" "" . shorten 50
 			        , ppLayout = const "" -- to disable layout info on xmobar
