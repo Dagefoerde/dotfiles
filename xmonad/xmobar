@@ -39,7 +39,7 @@ Config {
 
         -- weather monitor
         [ Run Weather "EDDG" [ "--template", "<fc=#e9a100><tempC></fc>°C"-- | <fc=#4682B4><pressure></fc>hPa" -- <skyCondition> | -- | <fc=#e9a100><rh></fc>%
-                             ] 36000
+                             ] 36000 -- Zehntelsekunden, d.h. Stündlich
 
         -- network activity monitor (dynamic interface resolution)
         , Run DynNetwork     [ "--template" , "<dev>: U <tx> D <rx>"
@@ -49,7 +49,7 @@ Config {
                              , "--normal"   , "orange"
                              , "--high"     , "red"
 			     , "-S"         , "True"
-                             ] 10
+                             ] 50
 
         -- cpu activity monitor
         , Run MultiCpu       [ "--template" , "Cpu: <total0>%|<total1>%|<total2>%|<total3>%"
@@ -58,7 +58,7 @@ Config {
                              , "--low"      , "green"
                              , "--normal"   , "orange"
                              , "--high"     , "red"
-                             ] 10
+                             ] 50
 
         -- cpu core temperature monitor
         --, Run CoreTemp       [ "--template" , "Temp: <core0>°C|<core1>°C"
@@ -76,7 +76,7 @@ Config {
                              , "--low"      , "green"
                              , "--normal"   , "orange"
                              , "--high"     , "red"
-                             ] 10
+                             ] 50
 
         -- battery monitor
         , Run BatteryP ["CMB1"]        [ "--template" , "Batt: <acstatus>"
@@ -93,7 +93,7 @@ Config {
                                        , "-O"	, "<fc=orange>Charging (<left>%)</fc>"
                                        -- charged status
                                        , "-i"	, "<fc=green>Charged</fc>"
-                             ] 50
+                             ] 300
 
         -- time and date indicator 
         --   (%F = y-m-d date, %a = day of week, %T = h:m:s time -- consult Data.Time.Format)
