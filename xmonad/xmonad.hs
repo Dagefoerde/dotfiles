@@ -178,6 +178,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((shiftMask , xF86XK_HomePage), spawn "google-chrome")
     , ((0 , xF86XK_Calculator), runOrRaise "gnome-calculator" (className =? "Gcalctool"))
     , ((shiftMask , xF86XK_Calculator), spawn "gnome-calculator")
+    , ((0 , xF86XK_Search), spawn "nemo")
     ]
     ++
 
