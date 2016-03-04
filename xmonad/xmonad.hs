@@ -172,6 +172,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- Microsoft Special Keys
     , ((0 , xF86XK_Mail), runOrRaise "thunderbird" (className =? "Thunderbird"))
+    , ((0 , xF86XK_HomePage), runOrRaise "google-chrome" (className =? "google-chrome"))
+    , ((shiftMask , xF86XK_HomePage), spawn "google-chrome")
     ]
     ++
 
