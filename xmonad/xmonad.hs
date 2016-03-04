@@ -175,6 +175,8 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0 , xF86XK_Favorites), runOrRaise "slack" (className =? "Slack"))
     , ((0 , xF86XK_HomePage), runOrRaise "google-chrome" (className =? "google-chrome"))
     , ((shiftMask , xF86XK_HomePage), spawn "google-chrome")
+    , ((0 , xF86XK_Calculator), runOrRaise "gnome-calculator" (className =? "Gcalctool"))
+    , ((shiftMask , xF86XK_Calculator), spawn "gnome-calculator")
     ]
     ++
 
