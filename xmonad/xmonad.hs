@@ -9,6 +9,7 @@
 
 import XMonad
 import XMonad.Actions.SpawnOn
+import XMonad.Actions.WindowGo (runOrRaise)
 import XMonad.Hooks.DynamicLog  
 import XMonad.Hooks.ManageDocks  
 import XMonad.Hooks.EwmhDesktops
@@ -168,6 +169,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0 , xF86XK_AudioPlay  ), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause")
     , ((modm, xF86XK_AudioRaiseVolume  ), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
     , ((modm, xF86XK_AudioLowerVolume  ), spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous")
+
+    -- Microsoft Special Keys
+    , ((0 , xF86XK_Mail), runOrRaise "thunderbird" (className =? "Thunderbird"))
     ]
     ++
 
@@ -297,7 +301,7 @@ myFocusFollowsMouse = True
 --
 -- By default, do nothing.
 myStartupHook = do
-	spawn "conky"
+	--runOrRaise "conky" (className =? "Conky")
 	spawn "thunderbird"
 	spawn "pidgin" 
 	spawn "slack"
