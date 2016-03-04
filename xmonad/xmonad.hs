@@ -214,9 +214,9 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-imLayout    = avoidStruts $ reflectHoriz $ ( withIM (1%6) (And (ClassName "Pidgin") (Role "buddy_list")) $ Grid ) ||| simpleTabbed
+imLayout    theme = avoidStruts $ reflectHoriz $ ( withIM (1%6) (And (ClassName "Pidgin") (Role "buddy_list")) $ Grid ) ||| tabbed shrinkText theme
 
-generalLayout = avoidStruts $ noFrillsDeco shrinkText theme $ tiled ||| Mirror tiled ||| simpleTabbed
+generalLayout theme = avoidStruts $ noFrillsDeco shrinkText theme $ tiled ||| Mirror tiled ||| tabbed shrinkText theme
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
@@ -230,10 +230,11 @@ generalLayout = avoidStruts $ noFrillsDeco shrinkText theme $ tiled ||| Mirror t
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
 
-     -- Customise decoration theme
-     theme   = defaultTheme { activeColor = "black", fontName = "xft:Source Code Pro-10" } 
+myLayout = onWorkspaces ["1:im"] (imLayout theme) $ (generalLayout theme)
+	where
+	     -- Customise decoration theme
+	     theme   = defaultTheme { activeColor = "black", fontName = "xft:Ubuntu-10" }
 
-myLayout = onWorkspaces ["1:im"] imLayout $ generalLayout
 
 ------------------------------------------------------------------------
 -- Window rules:
