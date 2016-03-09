@@ -280,9 +280,11 @@ myManageHook = ( composeAll . concat $
 
 -- Whether focus follows the mouse pointer.
 myFocusFollowsMouse :: Bool
-myFocusFollowsMouse = True
+myFocusFollowsMouse = False
 
-
+-- | Whether a mouse click select the focus or is just passed to the window
+myClickJustFocuses :: Bool
+myClickJustFocuses = True
 ------------------------------------------------------------------------
 -- Status bars and logging
 
@@ -339,6 +341,7 @@ defaults = defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
+	clickJustFocuses   = myClickJustFocuses,
         borderWidth        = myBorderWidth,
         modMask            = myModMask,
         --numlockMask        = myNumlockMask, --deprecated
