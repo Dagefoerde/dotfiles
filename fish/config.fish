@@ -9,3 +9,5 @@ source $OMF_PATH/init.fish
 
 # own addons
 source "$HOME/.config/fish/own_functions/aliases.fish"
+source "$HOME/.config/fish/own_functions/git.fish"
+
