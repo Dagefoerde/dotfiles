@@ -230,7 +230,7 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) = M.fromList $
 --
 imLayout    theme = avoidStruts $ reflectHoriz $ ( withIM (1%6) (And (ClassName "Pidgin") (Role "buddy_list")) $ Grid ) ||| tabbed shrinkText theme
 
-generalLayout theme = avoidStruts $ noFrillsDeco shrinkText theme $ tiled ||| Mirror tiled ||| tabbed shrinkText theme
+generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror tiled) ||| (noFrillsDeco shrinkText theme $ tiled) ||| tabbed shrinkText theme
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
