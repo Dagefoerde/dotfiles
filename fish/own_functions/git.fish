@@ -1,6 +1,6 @@
 # git shortcuts
 abbr -a g git
-abbr -a gd git digg
+abbr -a gd git diff
 abbr -a gc git commit -v
 abbr -a gcm git commit -m
 abbr -a gsb git status -sb
