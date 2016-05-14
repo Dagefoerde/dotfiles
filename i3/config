@@ -173,3 +173,12 @@ bar {
 	# fallback output
 	tray_output primary 
 }
+
+
+# integrate cinnamon properly (later):
+# // based on https://github.com/Gigadoc2/i3-cinnamon @211385c
+#  "In '~/.config/i3/config':"
+#  "* use 'exec cinnamon-session-quit --logout'    : logout dialog"
+#  "* use 'exec cinnamon-session-quit --power-off' : shutdown menu"
+#  "* use 'exec cinnamon-screensaver-command -l'   : locks the screen"
+#  "* use 'exec cinnamon-screensaver-lock-dialog   : lockscreen with message"

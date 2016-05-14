@@ -158,7 +158,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((modm .|. shiftMask, xK_l), spawn "slock")
 
     -- Suspend
-    , ((modm .|. shiftMask, xK_s), spawn "gksu pm-suspend; and slock") -- needs improvement: password check is unnecessary
+    , ((modm .|. shiftMask, xK_s), spawn "gksu pm-suspend && slock") -- needs improvement: password check is unnecessary
 
     -- Switch keyboard layout
     , ((modm .|. shiftMask, xK_a), spawn "layout_switch.sh")
@@ -314,6 +314,10 @@ myStartupHook = do
 	spawn "thunderbird"
 	spawn "pidgin" 
 	spawn "slack"
+    --spawn "~/.xmonad/autostart.sh"
+
+myHandleEventHook = 
+    fullscreenEventHook <+> docksEventHook
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -321,7 +325,7 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-    xmproc <- spawnPipe "/usr/bin/xmobar /home/likewise-open/WIWI/j_dage01/.xmonad/xmobar"
+    xmproc <- spawnPipe "/usr/bin/xmobar ~/.xmonad/xmobar"
     xmonad $ defaults {
 		logHook = setWMName "LG3D" <+> -- Fixes problems with Java Swing applications
             dynamicLogWithPP xmobarPP { --xmobar
@@ -358,5 +362,5 @@ defaults = defaultConfig {
         manageHook         = myManageHook,
         --logHook            = myLogHook,
         startupHook        = myStartupHook,
-	handleEventHook    = fullscreenEventHook
+	   handleEventHook    = myHandleEventHook
     }

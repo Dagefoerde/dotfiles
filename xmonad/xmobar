@@ -4,8 +4,8 @@ Config {
      font =         "xft:Ubuntu:size=12:antialias=true"
    , bgColor =      "black"
    , fgColor =      "#dddddd"
-   , position =     Top
-   , border =       BottomB
+   , position =     TopW L 90
+   , border =       BottomBM -3
    , borderColor =  "#dddddd"
 
    -- layout
