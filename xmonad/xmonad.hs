@@ -54,7 +54,7 @@ myClickJustFocuses = True
 
 
 -- layouts
-imLayout theme = avoidStruts $ reflectHoriz $ ( withIM (1%7) pidgin $ withIM (1%6) skype  $ Grid ) ||| tabbed shrinkText theme
+imLayout theme = avoidStruts $ reflectHoriz $ ( withIM (1%7) pidgin $ withIM (1%6) skype $ Grid ) ||| tabbed shrinkText theme
     where pidgin = And (ClassName "Pidgin") (Role "buddy_list")
           skype = And (ClassName "Skype") $ And (Role "") (Not $ Title "Optionen")
 
@@ -89,7 +89,7 @@ myManageHook = ( composeAll . concat $
     ]) <+> manageDocks
 	where
 		mailprogs = ["Thunderbird"]
-		improgs   = ["Pidgin", "Slack"]
+		improgs   = ["Pidgin", "Slack", "Skype"]
 
 -- event handlers
 myHandleEventHook = 
