@@ -54,7 +54,9 @@ myClickJustFocuses = True
 
 
 -- layouts
-imLayout theme = avoidStruts $ reflectHoriz $ ( withIM (1%6) (And (ClassName "Pidgin") (Role "buddy_list")) $ Grid ) ||| tabbed shrinkText theme
+imLayout theme = avoidStruts $ reflectHoriz $ ( withIM (1%7) pidgin $ withIM (1%6) skype  $ Grid ) ||| tabbed shrinkText theme
+    where pidgin = And (ClassName "Pidgin") (Role "buddy_list")
+          skype = And (ClassName "Skype") $ And (Role "") (Not $ Title "Optionen")
 
 generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror tiled) ||| (noFrillsDeco shrinkText theme $ tiled) ||| tabbed shrinkText theme
   where
