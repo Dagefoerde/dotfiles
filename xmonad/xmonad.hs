@@ -22,14 +22,15 @@ import Data.Ratio ((%))
 import XMonad.Hooks.ManageDocks  
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
-
+import XMonad.Hooks.UrgencyHook
 
 -- main declaration
 main :: IO ()
 main = do
     dbus <- D.connectSession
     getWellKnownName dbus
-    xmonad $ mateConfig {
+    xmonad $ withUrgencyHookC BorderUrgencyHook { urgencyBorderColor = "#ff0000" } urgencyConfig { suppressWhen = Never }
+	$ mateConfig {
 	  focusFollowsMouse  = myFocusFollowsMouse
 	, clickJustFocuses   = myClickJustFocuses
 	, modMask = myModMask
@@ -72,7 +73,7 @@ generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror tile
 myLayout = onWorkspaces ["1:im"] (imLayout theme) $ (generalLayout theme)
 	where
 	     -- Customise decoration theme
-	     theme   = defaultTheme { activeColor = "black", fontName = "xft:Ubuntu-10" }
+	     theme   = defaultTheme { activeColor = "black", fontName = "xft:Ubuntu-10", urgentColor = "red" }
 
 -- window management
 myManageHook = ( composeAll . concat $
