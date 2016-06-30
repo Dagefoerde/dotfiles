@@ -67,7 +67,7 @@ generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror tile
      nmaster = 1
 
      -- Default proportion of screen occupied by master pane
-     ratio   = 1/2
+     ratio   = 5/9
 
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
