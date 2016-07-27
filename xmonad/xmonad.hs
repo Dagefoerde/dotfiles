@@ -46,7 +46,7 @@ main = do
 
 -- basic config
 myModMask = mod4Mask
-myWorkspaces = ["1:im","2:web","3:mail","4:dev","5","6","7","8","9"]
+myWorkspaces = ["1:im","2:web","3:mail","4","5","6","7","8:vm","9:media"]
 myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 myFocusFollowsMouse = False
@@ -86,10 +86,14 @@ myManageHook = ( composeAll . concat $
     --, className =? "Conky"          --> doIgnore ] 
     [className =? c      --> doShift "3:mail"  | c <- mailprogs ]
     , [className =? c      --> doShift "1:im"  | c <- improgs ]
+    , [className =? c      --> doShift "8:vm"  | c <- vmprogs ]
+    , [className =? c      --> doShift "9:media"  | c <- mediaprogs ]
     ]) <+> manageDocks
 	where
 		mailprogs = ["Thunderbird"]
 		improgs   = ["Pidgin", "Slack", "Skype"]
+		vmprogs   = ["VirtualBox"]
+		mediaprogs = ["Spotify"]
 
 -- event handlers
 myHandleEventHook = 
