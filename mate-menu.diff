@@ -1,0 +1,11 @@
+/usr/lib/mate-menu
+diff mate-menu.py{,.old}
+93,94d92
+< 	self.window.window.set_type_hint(Gdk.WindowTypeHint.NORMAL)
+< 	print Gdk.WindowTypeHint.NORMAL
+109c107
+<         #self.window.stick()
+---
+>         self.window.stick()
+743d740
+<             self.mainwin.window.set_type_hint(Gdk.WindowTypeHint.NORMAL)
