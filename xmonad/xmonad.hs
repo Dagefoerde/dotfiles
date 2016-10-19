@@ -2,6 +2,7 @@
 
 import XMonad
 import XMonad.Config.Mate
+import qualified Data.Map as M
 
 -- For xmonad-log-applet (Mate)
 import XMonad.Hooks.DynamicLog
@@ -24,6 +25,9 @@ import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.UrgencyHook
 
+-- Window Mgmt
+import XMonad.Actions.CopyWindow
+
 -- main declaration
 main :: IO ()
 main = do
@@ -43,6 +47,7 @@ main = do
 	, handleEventHook = myHandleEventHook
         , logHook = setWMName "LG3D" <+> -- Fixes problems with Java Swing applications
 		 dynamicLogWithPP (prettyPrinter dbus)
+	, keys			= \xconfig -> M.union (windowManagementKeys xconfig) (keys mateConfig xconfig)
          }
 
 -- basic config
@@ -80,7 +85,7 @@ myLayout = onWorkspaces ["1:im"] (imLayout theme) $ (generalLayout theme)
 	     -- Customise decoration theme
 	     theme   = defaultTheme { activeColor = "black", fontName = "xft:Ubuntu-10", urgentColor = "red" }
 
--- window management
+-- window management: default workspaces
 myManageHook = ( composeAll . concat $
     [ --className =? "MPlayer"        --> doFloat
     --, className =? "Gimp"           --> doFloat
@@ -97,6 +102,13 @@ myManageHook = ( composeAll . concat $
 		improgs   = ["Pidgin", "Slack", "Skype"]
 		vmprogs   = ["VirtualBox"]
 		mediaprogs = ["Spotify"]
+
+-- window management: window copy
+windowManagementKeys conf@(XConfig {modMask = modm}) = M.fromList $
+    [((shiftMask .|. controlMask .|. modm, k), windows $ copy i)
+        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+        ]
+
 
 -- event handlers
 myHandleEventHook = 
