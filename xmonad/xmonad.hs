@@ -27,6 +27,7 @@ import XMonad.Hooks.UrgencyHook
 
 -- Window Mgmt
 import XMonad.Actions.CopyWindow
+import XMonad.Actions.CycleWS
 
 -- main declaration
 main :: IO ()
@@ -103,12 +104,15 @@ myManageHook = ( composeAll . concat $
 		vmprogs   = ["VirtualBox"]
 		mediaprogs = ["Spotify"]
 
--- window management: window copy
+-- window management: additional keys
 windowManagementKeys conf@(XConfig {modMask = modm}) = M.fromList $
+    -- toggle workspace
+    ((modm, xK_z), toggleWS)
+    :
+    -- window copy
     [((shiftMask .|. controlMask .|. modm, k), windows $ copy i)
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         ]
-
 
 -- event handlers
 myHandleEventHook = 
