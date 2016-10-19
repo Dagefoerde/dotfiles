@@ -39,6 +39,7 @@ main = do
         , focusedBorderColor = myFocusedBorderColor
 	, layoutHook         = myLayout
         , manageHook         = myManageHook
+        , startupHook        = myStartupHook
 	, handleEventHook = myHandleEventHook
         , logHook = setWMName "LG3D" <+> -- Fixes problems with Java Swing applications
 		 dynamicLogWithPP (prettyPrinter dbus)
@@ -51,6 +52,8 @@ myNormalBorderColor  = "#dddddd"
 myFocusedBorderColor = "#ff0000"
 myFocusFollowsMouse = False
 myClickJustFocuses = True
+myStartupHook = do
+	spawn "xmodmap ~/.Xmodmap"
 
 
 -- layouts
