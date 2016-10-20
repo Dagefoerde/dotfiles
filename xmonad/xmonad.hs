@@ -28,6 +28,7 @@ import XMonad.Hooks.UrgencyHook
 -- Window Mgmt
 import XMonad.Actions.CopyWindow
 import XMonad.Actions.CycleWS
+import XMonad.Actions.GridSelect
 
 -- main declaration
 main :: IO ()
@@ -108,6 +109,9 @@ myManageHook = ( composeAll . concat $
 windowManagementKeys conf@(XConfig {modMask = modm}) = M.fromList $
     -- toggle workspace
     ((modm, xK_z), toggleWS)
+    :
+    -- grid select
+    ((modm, xK_o), goToSelected defaultGSConfig)
     :
     -- window copy
     [((shiftMask .|. controlMask .|. modm, k), windows $ copy i)
