@@ -7,7 +7,7 @@ set -gx OMF_PATH "/home/j_dage01/.local/share/omf"
 # Load oh-my-fish configuration.
 source $OMF_PATH/init.fish
 
-set -g fish_key_bindings fish_vi_key_bindings
+#set -g fish_key_bindings fish_vi_key_bindings These went annoying in fish 2.4.0 and for now it seems better to just dump them
 
 # own addons
 source "$HOME/.config/fish/own_functions/aliases.fish"
