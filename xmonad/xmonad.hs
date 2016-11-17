@@ -35,7 +35,7 @@ main :: IO ()
 main = do
     dbus <- D.connectSession
     getWellKnownName dbus
-    xmonad $ withUrgencyHookC BorderUrgencyHook { urgencyBorderColor = "#ff0000" } urgencyConfig { suppressWhen = Never }
+    xmonad $ withUrgencyHookC BorderUrgencyHook { urgencyBorderColor = red } urgencyConfig { suppressWhen = Never }
 	$ mateConfig {
 	  focusFollowsMouse  = myFocusFollowsMouse
 	, clickJustFocuses   = myClickJustFocuses
@@ -55,8 +55,8 @@ main = do
 -- basic config
 myModMask = mod4Mask
 myWorkspaces = ["1:im","2:web","3:mail","4","5","6","7","8:vm","9:media"]
-myNormalBorderColor  = "#dddddd"
-myFocusedBorderColor = "#ff0000"
+myNormalBorderColor  = base02
+myFocusedBorderColor = base2
 myFocusFollowsMouse = False
 myClickJustFocuses = True
 myStartupHook = do
@@ -85,7 +85,8 @@ generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror tile
 myLayout = onWorkspaces ["1:im"] (imLayout theme) $ (generalLayout theme)
 	where
 	     -- Customise decoration theme
-	     theme   = defaultTheme { activeColor = "black", fontName = "xft:Ubuntu-10", urgentColor = "red" }
+	     theme   = defaultTheme { activeColor = base3, inactiveColor = base03, activeBorderColor = base2, inactiveBorderColor = base02, inactiveTextColor = base0, activeTextColor = base00, fontName = "xft:Ubuntu:size=10:antialias=true", urgentColor = red }
+
 
 -- window management: default workspaces
 myManageHook = ( composeAll . concat $
@@ -163,3 +164,21 @@ pangoSanitize = foldr sanitize ""
     sanitize '\"' xs = "&quot;" ++ xs
     sanitize '&'  xs = "&amp;" ++ xs
     sanitize x    xs = x:xs
+
+-- solarized colors
+base03 = "#002b36"
+base02 = "#073642"
+base01 = "#586e75"
+base00 = "#657b83"
+base0  = "#839496"
+base1  = "#93a1a1"
+base2  = "#eee8d5"
+base3  = "#fdf6e3"
+yellow = "#b58900" 
+orange = "#cb4b16" 
+red    = "#dc322f" 
+magenta= "#d33682"
+violet = "#6c71c4"
+blue   = "#268bd2"
+cyan   = "#2aa198"
+green  = "#859900"
