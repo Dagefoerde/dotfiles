@@ -7,6 +7,7 @@ abbr -a gsb git status -sb
 abbr -a ga git add
 abbr -a gco git checkout
 abbr -a gpr git pull --rebase
+abbr -a gl "git log --graph --all --pretty=format:'%Cred%h %Cgreen[%ci] %Cblue<%an>%Cgreen%C(bold)%d%Creset %s %Creset'"
 
 
 
