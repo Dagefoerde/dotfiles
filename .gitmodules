@@ -1,0 +1,3 @@
+[submodule "mate-solarized"]
+	path = mate-solarized
+	url = https://github.com/cledoux/mate-terminal-colors-solarized.git
