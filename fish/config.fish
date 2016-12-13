@@ -10,6 +10,7 @@ source $OMF_PATH/init.fish
 set -g fish_key_bindings fish_default_key_bindings # switch to hybrid in fish >> 2.4.0
 
 # own addons
+#source "$HOME/.config/fish/solarized.fish"
 source "$HOME/.config/fish/own_functions/aliases.fish"
 source "$HOME/.config/fish/own_functions/git.fish"
 source "$HOME/.config/fish/own_functions/docker.fish"
