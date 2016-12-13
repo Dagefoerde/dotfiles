@@ -17,6 +17,7 @@ import XMonad.Layout.PerWorkspace (onWorkspaces)
 import XMonad.Layout.Reflect (reflectHoriz)
 import XMonad.Layout.NoFrillsDecoration
 import XMonad.Layout.Tabbed
+import XMonad.Layout.Spiral
 import Data.Ratio ((%))
 
 -- Hooks
@@ -68,10 +69,13 @@ imLayout theme = avoidStruts $ reflectHoriz $ ( withIM (1%7) pidgin $ withIM (1%
     where pidgin = And (ClassName "Pidgin") (Role "buddy_list")
           skype = And (ClassName "Skype") $ And (Role "") (Not $ Title "Optionen")
 
-generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror tiled) ||| (noFrillsDeco shrinkText theme $ tiled) ||| tabbed shrinkText theme
+generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror spiralling) ||| (noFrillsDeco shrinkText theme $ spiralling) ||| tabbed shrinkText theme
   where
      -- default tiling algorithm partitions the screen into two panes
      tiled   = Tall nmaster delta ratio
+
+     -- spiral tiling theme
+     spiralling  = spiral (6/9)
 
      -- The default number of windows in the master pane
      nmaster = 1
