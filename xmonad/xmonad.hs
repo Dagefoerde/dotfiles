@@ -101,7 +101,7 @@ myManageHook = ( composeAll . concat $
     , [className =? c      --> doShift "9:media"  | c <- mediaprogs ]
     ]) <+> manageDocks
 	where
-		mailprogs = ["Thunderbird"]
+		mailprogs = ["Thunderbird", "Feedreader"]
 		improgs   = ["Pidgin", "Slack", "Skype"]
 		vmprogs   = ["VirtualBox"]
 		mediaprogs = ["Spotify"]

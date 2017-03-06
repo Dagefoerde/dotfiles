@@ -8,7 +8,8 @@ abbr -a gst "git status -s | while read mode file; echo \$mode \$file (stat -c \
 abbr -a ga git add
 abbr -a gco git checkout
 abbr -a gpr git pull --rebase
-abbr -a gl "git log --graph --all --pretty=format:'%G? %Cred%h %Cgreen[%ci] %Cblue<%an>%Cgreen%C(bold)%d%Creset %s %Creset'"
+abbr -a gl "git log --graph --pretty=format:'%G? %Cred%h %Cgreen[%ci] %Cblue<%an>%Cgreen%C(bold)%d%Creset %s %Creset'"
+abbr -a gr git rebase
 
 
 
