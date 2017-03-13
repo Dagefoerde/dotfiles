@@ -1,4 +1,5 @@
 ```sh
+ln -s $PWD/gitconfig ~/.gitconfig
 mkdir ~/.xmonad
 ln -s $PWD/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 ln -s $PWD/fish/own_functions  ~/.config/fish/

@@ -1,0 +1,12 @@
+[user]
+	name = Jan Dageförde
+	email = jan.dagefoerde@ercis.uni-muenster.de
+	signingkey = C775F555
+[core]
+	editor = vim
+[branch]
+	autosetuprebase = always
+[push]
+	default = simple
+[commit]
+	gpgsign = true
