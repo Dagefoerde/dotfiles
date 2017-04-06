@@ -24,6 +24,8 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.UrgencyHook
+import XMonad.ManageHook
+import qualified XMonad.StackSet as W
 
 -- Window Mgmt
 import XMonad.Actions.CopyWindow
@@ -99,12 +101,18 @@ myManageHook = ( composeAll . concat $
     , [className =? c      --> doShift "1:im"  | c <- improgs ]
     , [className =? c      --> doShift "8:vm"  | c <- vmprogs ]
     , [className =? c      --> doShift "9:media"  | c <- mediaprogs ]
+    , [role =? "GtkFileChooserDialog" --> doSink]
     ]) <+> manageDocks
 	where
+                role = stringProperty "WM_WINDOW_ROLE"
 		mailprogs = ["Thunderbird", "Feedreader"]
 		improgs   = ["Pidgin", "Slack", "Skype"]
 		vmprogs   = ["VirtualBox"]
 		mediaprogs = ["Spotify"]
+
+-- window management: additional managehook
+doSink :: ManageHook
+doSink = ask >>= \w -> liftX (reveal w) >> doF (W.sink w)
 
 -- window management: additional keys
 windowManagementKeys conf@(XConfig {modMask = modm}) = M.fromList $
