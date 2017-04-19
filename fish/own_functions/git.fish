@@ -15,8 +15,8 @@ abbr -a gr git rebase
 # Inspired by the post of https://dev.to/shayde/open-the-github-project-page-of-a-repo-from-terminal
 # Adapted from the comment https://dev.to/shayde/open-the-github-project-page-of-a-repo-from-terminal/comments/5m2
 function github
-	if [ ! -d .git ] ;
-		echo "ERROR: This isn't a git directory"; and return (false);
+	if not git rev-parse
+		echo "ERROR: This isn't a git repository or subdirectory"; and return (false);
 	end
 
 	set -l git_url (git config --get remote.origin.url)
