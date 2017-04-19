@@ -1,4 +1,4 @@
-# git shortcuts
+# docker shortcuts
 abbr -a dco docker-compose
 
 
