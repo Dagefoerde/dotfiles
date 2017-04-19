@@ -11,6 +11,9 @@ abbr -a gpr git pull --rebase
 abbr -a gl "git log --graph --pretty=format:'%G? %Cred%h %Cgreen[%ci] %Cblue<%an>%Cgreen%C(bold)%d%Creset %s %Creset'"
 abbr -a gr git rebase
 
+# Function that opens the GitHub/GitLab repository corresponding to the current folder.
+# Inspired by the post of https://dev.to/shayde/open-the-github-project-page-of-a-repo-from-terminal
+# Adapted from the comment https://dev.to/shayde/open-the-github-project-page-of-a-repo-from-terminal/comments/5m2
 function github
 	if [ ! -d .git ] ;
 		echo "ERROR: This isn't a git directory"; and return (false);
