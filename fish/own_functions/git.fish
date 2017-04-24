@@ -2,14 +2,17 @@
 abbr -a g git
 abbr -a gd git diff
 abbr -a gc git commit -v
-abbr -a gcm git commit -m
+abbr -a gcf git commit -v --fixup
 abbr -a gsb git status -sb
 abbr -a gst "git status -s | while read mode file; echo \$mode \$file (stat -c \\%y \$file); end;"
 abbr -a ga git add
+abbr -a gaa git add --all
 abbr -a gco git checkout
 abbr -a gpr git pull --rebase
 abbr -a gl "git log --graph --pretty=format:'%G? %Cred%h %Cgreen[%ci] %Cblue<%an>%Cgreen%C(bold)%d%Creset %s %Creset'"
 abbr -a gr git rebase
+abbr -a grc git rebase --continue
+abbr -a gps git push
 
 # Function that opens the GitHub/GitLab repository corresponding to the current folder.
 # Inspired by the post of https://dev.to/shayde/open-the-github-project-page-of-a-repo-from-terminal
