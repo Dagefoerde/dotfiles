@@ -14,4 +14,5 @@ set -g fish_key_bindings fish_default_key_bindings # switch to hybrid in fish >>
 source "$HOME/.config/fish/own_functions/aliases.fish"
 source "$HOME/.config/fish/own_functions/git.fish"
 source "$HOME/.config/fish/own_functions/docker.fish"
+source "$HOME/.config/fish/own_functions/mulidev.fish"
 
