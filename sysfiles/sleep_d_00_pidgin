@@ -1,0 +1,15 @@
+#!/bin/sh
+#
+# 00_pidgin: set offline/online status for user j_dage01 (replace if needed)
+# Modified from https://wiki.ubuntuusers.de/Pidgin/#Automatisches-Ausloggen-bei-Standby
+
+case "$1" in
+hibernate|suspend)
+DISPLAY=:0 su -c 'purple-remote setstatus?status=offline' j_dage01
+;;
+thaw|resume)
+DISPLAY=:0 su -c 'purple-remote setstatus?status=available' j_dage01
+;;
+*) exit $NA
+;;
+esac
