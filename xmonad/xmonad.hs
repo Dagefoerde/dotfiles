@@ -87,7 +87,7 @@ generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror tile
 myLayout = onWorkspaces ["1:im"] (imLayout theme) $ (generalLayout theme)
 	where
 	     -- Customise decoration theme
-	     theme   = defaultTheme { activeColor = base3, inactiveColor = base03, activeBorderColor = base2, inactiveBorderColor = base02, inactiveTextColor = base0, activeTextColor = base00, fontName = "xft:Ubuntu:size=10:antialias=true", urgentColor = red }
+	     theme   = defaultTheme { activeColor = base3, inactiveColor = base03, activeBorderColor = base2, inactiveBorderColor = base02, inactiveTextColor = base0, activeTextColor = base00, fontName = "xft:Ubuntu:style=Medium:size=10:antialias=true", urgentColor = red }
 
 
 -- window management: default workspaces
