@@ -4,9 +4,12 @@
 	signingkey = C775F555
 [core]
 	editor = vim
+	autocrlf = true
 [branch]
 	autosetuprebase = always
 [push]
 	default = simple
 [commit]
 	gpgsign = true
+[alias]
+	showtrackedignored = ls-files -i --exclude-standard
