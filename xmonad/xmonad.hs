@@ -13,6 +13,7 @@ import qualified Codec.Binary.UTF8.String as UTF8
 -- Layouts
 import XMonad.Layout.IM
 import XMonad.Layout.Grid
+import XMonad.Layout.StackTile
 import XMonad.Layout.PerWorkspace (onWorkspaces)
 import XMonad.Layout.Reflect (reflectHoriz)
 import XMonad.Layout.NoFrillsDecoration
@@ -66,7 +67,7 @@ myStartupHook = do
 
 
 -- layouts
-imLayout theme = avoidStruts $ reflectHoriz $ ( withIM (1%7) pidgin $ withIM (1%6) skype $ Grid ) ||| tabbed shrinkText theme
+imLayout theme = avoidStruts $ reflectHoriz $ ( withIM (1%7) pidgin $ withIM (1%6) skype $ StackTile 1 (3/100) (1/2) ) ||| tabbed shrinkText theme
     where pidgin = And (ClassName "Pidgin") (Role "buddy_list")
           skype = And (ClassName "Skype") $ And (Role "") (Not $ Title "Optionen")
 
