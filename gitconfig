@@ -1,7 +1,7 @@
 [user]
 	name = Jan Dageförde
 	email = jan.dagefoerde@ercis.uni-muenster.de
-	signingkey = C775F555
+	signingkey = 4B5E4FCC
 [core]
 	editor = vim
 	autocrlf = true
