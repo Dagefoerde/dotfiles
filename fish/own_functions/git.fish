@@ -14,6 +14,7 @@ abbr -a gl "git log --graph --pretty=format:'%G? %Cred%h %Cgreen[%ci] %Cblue<%an
 abbr -a gr git rebase
 abbr -a grc git rebase --continue
 abbr -a gps git push
+abbr -a gpsf git push --force-with-lease
 
 # Function that opens the GitHub/GitLab repository corresponding to the current folder.
 # Inspired by the post of https://dev.to/shayde/open-the-github-project-page-of-a-repo-from-terminal
