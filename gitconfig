@@ -4,7 +4,7 @@
 	signingkey = 4B5E4FCC
 [core]
 	editor = vim
-	autocrlf = true
+	autocrlf = input
 [branch]
 	autosetuprebase = always
 [push]
@@ -13,3 +13,5 @@
 	gpgsign = true
 [alias]
 	showtrackedignored = ls-files -i --exclude-standard
+[hub]
+	protocol = ssh
