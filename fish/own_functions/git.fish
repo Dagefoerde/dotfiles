@@ -3,6 +3,7 @@ abbr -a g git
 abbr -a gd git diff
 abbr -a gc git commit -v
 abbr -a gcf git commit -v --fixup
+abbr -a gcp git cherry-pick 
 abbr -a gsb git status -sb
 abbr -a gs git status
 abbr -a gst "git status -s | while read mode file; echo \$mode \$file (stat -c \\%y \$file); end;"
