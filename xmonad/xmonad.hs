@@ -117,6 +117,9 @@ doSink = ask >>= \w -> liftX (reveal w) >> doF (W.sink w)
 
 -- window management: additional keys
 windowManagementKeys conf@(XConfig {modMask = modm}) = M.fromList $
+    -- select password (pass)
+    ((modm .|. shiftMask, xK_p), spawn "passmenu")
+    :
     -- toggle workspace
     ((modm, xK_z), toggleWS)
     :
