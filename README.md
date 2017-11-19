@@ -5,6 +5,7 @@ ln -s $PWD/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
 ln -s $PWD/fish/own_functions  ~/.config/fish/
 ln -s $PWD/fish/solarized.fish  ~/.config/fish/
 ln -s $PWD/fish/config.fish  ~/.config/fish/
+ln -s $PWD/fish/nvm-wrapper  ~/.config/fish/
 ln -s $PWD/bin ~/bin/
 ln -s $PWD/Xmodmap ~/.Xmodmap
 ln -s $PWD/inkscape-palettes/ercis.gpl ~/.config/inkscape/palettes/

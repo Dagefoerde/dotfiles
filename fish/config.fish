@@ -17,3 +17,4 @@ source "$HOME/.config/fish/own_functions/docker.fish"
 source "$HOME/.config/fish/own_functions/mulidev.fish"
 source "$HOME/.config/fish/own_functions/cheat.fish"
 
+source "$HOME/.config/fish/nvm-wrapper/nvm.fish"
