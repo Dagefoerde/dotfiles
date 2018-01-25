@@ -1,9 +1,9 @@
 # git shortcuts
 abbr -a g git
 abbr -a gd git diff
-abbr -a gc git commit -v
-abbr -a gcf git commit -v --fixup
-abbr -a gca git commit -v --amend
+abbr -a gc git commit -v -S
+abbr -a gcf git commit -v -S --fixup
+abbr -a gca git commit -v -S --amend
 abbr -a gcp git cherry-pick 
 abbr -a gsb git status -sb
 abbr -a gs git status

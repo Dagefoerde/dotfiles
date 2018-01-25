@@ -9,9 +9,9 @@
 	autosetuprebase = always
 [push]
 	default = simple
-[commit]
-	gpgsign = true
 [alias]
 	showtrackedignored = ls-files -i --exclude-standard
 [hub]
 	protocol = ssh
+[gpg]
+	program = /usr/bin/gpg2
