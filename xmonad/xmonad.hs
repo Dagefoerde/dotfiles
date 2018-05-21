@@ -102,6 +102,7 @@ myManageHook = ( composeAll . concat $
     , [className =? c      --> doShift "1:im"  | c <- improgs ]
     , [className =? c      --> doShift "8:vm"  | c <- vmprogs ]
     , [className =? c      --> doShift "9:media"  | c <- mediaprogs ]
+    , [title =? "VirtualBox" --> doIgnore ]
     , [role =? "GtkFileChooserDialog" --> doSink]
     ]) <+> manageDocks
 	where
