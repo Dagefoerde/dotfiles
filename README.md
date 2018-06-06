@@ -2,6 +2,7 @@
 ln -s $PWD/gitconfig ~/.gitconfig
 mkdir ~/.xmonad
 ln -s $PWD/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+ln -s $PWD/xmonad/DBus-spotify.py ~/.xmonad/xmonad.hs
 ln -s $PWD/fish/own_functions  ~/.config/fish/
 ln -s $PWD/fish/solarized.fish  ~/.config/fish/
 ln -s $PWD/fish/config.fish  ~/.config/fish/

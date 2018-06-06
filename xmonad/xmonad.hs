@@ -9,6 +9,7 @@ import XMonad.Hooks.DynamicLog
 import qualified DBus as D
 import qualified DBus.Client as D
 import qualified Codec.Binary.UTF8.String as UTF8
+import XMonad.Util.Run
 
 -- Layouts
 import XMonad.Layout.IM
@@ -141,7 +142,7 @@ myHandleEventHook =
 prettyPrinter :: D.Client -> PP
 prettyPrinter dbus = defaultPP
     { ppOutput   = dbusOutput dbus
-    , ppTitle    = const "" -- was: pangoSanitize; suppresses title output
+    , ppTitle    = const ""
     , ppCurrent  = pangoColor "green" . wrap "[" "]" . pangoSanitize
     , ppVisible  = pangoColor "yellow" . wrap "(" ")" . pangoSanitize
 --    , ppHidden   = const ""
@@ -149,6 +150,10 @@ prettyPrinter dbus = defaultPP
     , ppLayout   = const ""
     , ppSep      = " "
     }
+
+spotifyTitle :: IO String
+spotifyTitle = runProcessWithInput "/usr/bin/python3" [".xmonad/DBus-spotify.py", "print_info", "spotify"] ""
+--spotifyTitle = runProcessWithInput "date" [] ""
 
 getWellKnownName :: D.Client -> IO ()
 getWellKnownName dbus = do
@@ -158,8 +163,10 @@ getWellKnownName dbus = do
   
 dbusOutput :: D.Client -> String -> IO ()
 dbusOutput dbus str = do
-    let signal = (D.signal (D.objectPath_ "/org/xmonad/Log") (D.interfaceName_ "org.xmonad.Log") (D.memberName_ "Update")) {
-            D.signalBody = [D.toVariant ("<b>" ++ (UTF8.decodeString str) ++ "</b>")]
+    spotify <- spotifyTitle
+    let
+        signal = (D.signal (D.objectPath_ "/org/xmonad/Log") (D.interfaceName_ "org.xmonad.Log") (D.memberName_ "Update")) {
+            D.signalBody = [D.toVariant ("<b>" ++ (UTF8.decodeString str) ++ "</b>  " ++ (init spotify))]
         }
     D.emit dbus signal
 
