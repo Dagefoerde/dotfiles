@@ -11,6 +11,7 @@ ln -s $PWD/fish/nvm-wrapper  ~/.config/fish/
 mkdir ~/bin/
 ln -s $PWD/bin/gw ~/bin/
 ln -s $PWD/Xmodmap ~/.Xmodmap
+ln -s $PWD/xsessionrc ~/.xsessionrc
 mkdir -p ~/.config/inkscape/palettes/
 ln -s $PWD/inkscape-palettes/ercis.gpl ~/.config/inkscape/palettes/
 sudo ln -s $PWD/sysfiles/sleep_d_00_pidgin /etc/pm/sleep.d/00_pidgin

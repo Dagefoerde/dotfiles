@@ -1,8 +1,8 @@
 # Path to Oh My Fish install.
-set -gx OMF_PATH "/home/j_dage01/.local/share/omf"
+set -gx OMF_PATH "$HOME/.local/share/omf"
 
 # Customize Oh My Fish configuration path.
-#set -gx OMF_CONFIG "/home/j_dage01/.config/omf"
+set -gx OMF_CONFIG "$HOME/.config/omf"
 
 # Load oh-my-fish configuration.
 source $OMF_PATH/init.fish
@@ -17,4 +17,3 @@ source "$HOME/.config/fish/own_functions/docker.fish"
 source "$HOME/.config/fish/own_functions/mulidev.fish"
 source "$HOME/.config/fish/own_functions/cheat.fish"
 
-source "$HOME/.config/fish/nvm-wrapper/nvm.fish"
