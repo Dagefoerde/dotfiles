@@ -1,6 +1,6 @@
 [submodule "mate-solarized"]
 	path = mate-solarized
 	url = https://github.com/cledoux/mate-terminal-colors-solarized.git
-[submodule "fish/nvm-wrapper"]
-	path = fish/nvm-wrapper
-	url = git@github.com:passcod/nvm-fish-wrapper.git
+[submodule "bass"]
+	path = bass
+	url = https://github.com/edc/bass.git
