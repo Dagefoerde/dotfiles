@@ -5,6 +5,7 @@ ln -s $PWD/xmonad/xmonad.hs ~/.xmonad/
 ln -s $PWD/xmonad/DBus-spotify.py ~/.xmonad/
 mkdir -p ~/.config/fish/
 ln -s $PWD/fish/own_functions  ~/.config/fish/
+ln -s $PWD/fish/completions  ~/.config/fish/completions
 ln -s $PWD/fish/solarized.fish  ~/.config/fish/
 ln -s $PWD/fish/config.fish  ~/.config/fish/
 ln -s $PWD/fish/nvm-wrapper  ~/.config/fish/
