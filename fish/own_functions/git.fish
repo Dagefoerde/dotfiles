@@ -17,6 +17,8 @@ abbr -a gr git rebase
 abbr -a grc git rebase --continue
 abbr -a gps git push
 abbr -a gpsf git push --force-with-lease
+abbr -a prls hub pr list
+abbr -a prco hub pr checkout
 
 # Function that opens the GitHub/GitLab repository corresponding to the current folder.
 # Inspired by the post of https://dev.to/shayde/open-the-github-project-page-of-a-repo-from-terminal
