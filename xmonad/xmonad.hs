@@ -87,7 +87,14 @@ generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror tile
      -- Percent of screen to increment by when resizing panes
      delta   = 3/100
 
-myLayout = onWorkspaces ["1:im"] (imLayout theme) $ (generalLayout theme)
+mailLayout theme = avoidStruts $ (Mirror $ splitLayout) ||| splitLayout ||| tabbed shrinkText theme
+        where thunderbirdMain = And (ClassName "Thunderbird") (Role "3pane")
+              splitLayout = withIM (1%2) thunderbirdMain $ (Mirror $ tabbed shrinkText theme)
+
+
+myLayout = onWorkspaces ["1:im"] (imLayout theme) $
+             onWorkspaces ["3:mail"] (mailLayout theme) $
+             (generalLayout theme)
 	where
 	     -- Customise decoration theme
 	     theme   = defaultTheme { activeColor = base3, inactiveColor = base03, activeBorderColor = base2, inactiveBorderColor = base02, inactiveTextColor = base0, activeTextColor = base00, fontName = "xft:Ubuntu:style=Medium:size=10:antialias=true", urgentColor = red }
