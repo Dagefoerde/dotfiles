@@ -68,9 +68,10 @@ myStartupHook = do
 
 
 -- layouts
-imLayout theme = avoidStruts $ reflectHoriz $ ( withIM (1%7) pidgin $ withIM (1%6) skype $ StackTile 1 (3/100) (1/2) ) ||| tabbed shrinkText theme
+imLayout theme = avoidStruts $ reflectHoriz $ ( imColumns $ StackTile 1 (3/100) (1/2) ) ||| ( imColumns $ tabbed shrinkText theme )
     where pidgin = And (ClassName "Pidgin") (Role "buddy_list")
           skype = And (ClassName "Skype") $ And (Role "") (Not $ Title "Optionen")
+          imColumns n = withIM (1%7) pidgin $ withIM (1%6) skype $ n
 
 generalLayout theme = avoidStruts $ (noFrillsDeco shrinkText theme $ Mirror tiled) ||| (noFrillsDeco shrinkText theme $ tiled) ||| tabbed shrinkText theme
   where
