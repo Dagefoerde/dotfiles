@@ -11,11 +11,11 @@ abbr -a gst "git status -s | while read mode file; echo \$mode \$file (stat -c \
 abbr -a ga git add
 abbr -a gaa git add --all
 abbr -a gco git checkout
-abbr -a gpr git pull --rebase
+abbr -a gpr git pull --rebase -S
 abbr -a gl "git log --graph --pretty=format:'%G? %Cred%h %Cgreen[%ai] %Cblue<%an>%Cgreen%C(bold)%d%Creset %s %Creset'"
 abbr -a gr git rebase
 abbr -a grc git rebase --continue
-abbr -a gps git push
+abbr -a gps git push --recurse-submodules=on-demand
 abbr -a gpsf git push --force-with-lease
 abbr -a prls hub pr list
 abbr -a prco hub pr checkout
