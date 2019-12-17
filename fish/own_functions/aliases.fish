@@ -8,3 +8,6 @@ alias gradle="gw"
 
 # Pass for second password store
 abbr -a zhlpass env PASSWORD_STORE_DIR=/home/j_dage01/.password-store-zhldigital pass
+
+# colour output of ip command
+abbr -a ip ip -color
