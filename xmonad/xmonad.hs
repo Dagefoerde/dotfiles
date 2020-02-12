@@ -176,7 +176,7 @@ dbusOutput dbus str = do
         title | length spotify == 0 = ""
               | otherwise = init spotify
         signal = (D.signal (D.objectPath_ "/org/xmonad/Log") (D.interfaceName_ "org.xmonad.Log") (D.memberName_ "Update")) {
-            D.signalBody = [D.toVariant ("<b>" ++ (UTF8.decodeString str) ++ "</b>  " ++ title)]
+            D.signalBody = [D.toVariant ("<b>" ++ (UTF8.decodeString str) ++ "</b>  " ++ (pangoSanitize title))]
         }
     D.emit dbus signal
 
