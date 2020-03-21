@@ -160,7 +160,7 @@ prettyPrinter dbus = defaultPP
     }
 
 spotifyTitle :: IO String
-spotifyTitle = runProcessWithInput "/usr/bin/python3" [".xmonad/DBus-spotify.py", "print_info", "spotify"] ""
+spotifyTitle = runProcessWithInput "/usr/bin/python3" [".xmonad/DBus-spotify.py", "print-info", "spotify"] ""
 --spotifyTitle = runProcessWithInput "date" [] ""
 
 getWellKnownName :: D.Client -> IO ()
